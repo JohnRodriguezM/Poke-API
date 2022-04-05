@@ -1,11 +1,18 @@
 "use strict";
 
+import { 
+  registerImage 
+} from './lazyLoading.mjs'
+
+console.log(registerImage);
+
 const d = document;
 
 const $main = d.querySelector("main");
 const $links = d.querySelector(".links");
 const cards = d.querySelector(".cards");
-const btn = d.getElementById("btn-paginacion");
+const btn = d.getElementById("btnpaginacion");
+const btnOcultar = d.getElementById("btnOcultar");
 // hago el proceso desde la primera api que es la basica
 let urll = "https://pokeapi.co/api/v2/pokemon/";
 let pokeForm = "https://pokeapi.co/api/v2/pokemon-form/";
@@ -20,16 +27,37 @@ const getData_forImg = async (dataDeData) => {
       let datos = await peticion.json();
       console.log(datos);
       console.log(datos.name);
-      let imgPokemon = datos.sprites.front_default;
+      let imgPokemonFront = datos.sprites.front_default;
+      let imgPokemonBack = datos.sprites.back_default;
+      let imgPokemonShiny = datos.sprites.front_shiny;
       cards.innerHTML += `
+     <div class = "imgs" >
+      <li>${datos.name}</li>
         <div class="card">
-        <li>${datos.name}</li>
-            <img src="${imgPokemon}" alt="">
+        <figure><img src="${imgPokemonFront}" alt=""></figure>
+        <figure><img src="${imgPokemonBack}" alt=""></figure>
+        <figure> <img src="${imgPokemonShiny}" alt=""></figure>
+        
+                     
             </div>
         </div>
         `;
+
     }
-  } catch (err) {
+    d.addEventListener('click', e => {
+      if(e.target === btnOcultar){
+        let cards = [...d.querySelectorAll('.card')];
+        for(let el of cards){
+          el.style.display = 'none';
+        }
+        getDataPokemon()
+        location.reload()
+      }
+    })
+  } 
+  
+  
+  catch (err) {
     console.log(err);
   }
 };
@@ -59,22 +87,37 @@ const getDataPokemon = async () => {
     // variable para guardar la data
     let res = data.results;
     console.log(res);
-    res.forEach((el) => {
+    res.forEach((el,index) => {
       cards.innerHTML += `
      <div class = "names">
-     <li class = "li">${el.name} -----</li></div> 
+     <li class = "liPokeName">Pokemón ${index + 1}:</li>
+     <li class = "li">${el.name.charAt(0).toUpperCase() + el.name.slice(1)}</li>
+     </div>
 
         `;
     });
-
-    
     // se ejecuta funcion que me trae la data de las url de cada pokemon
-    getDatasPokemonesResults(res);
-} catch (err) {
+    d.addEventListener("click", e => {
+      if (e.target === btn) {
+        getDatasPokemonesResults(res);
+        let names = [...d.querySelectorAll(".names")];
+        console.log(names);
+        for (let el of names) {
+          el.style.display = "none";
+          
+        }
+      }
+    },{
+      once: true,
+    });
+  } catch (err) {
     console.log(err);
-}
+  }
 };
 
 // activador de evento en el navegador
-d.addEventListener("DOMContentLoaded", getDataPokemon);
 
+
+d.addEventListener("DOMContentLoaded", getDataPokemon,{
+  once: true,
+});
