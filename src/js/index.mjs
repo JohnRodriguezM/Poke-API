@@ -6,8 +6,8 @@ console.log(registerImage);
 
 const d = document;
 
-const $main = d.querySelector("main");
-const $links = d.querySelector(".links");
+/* const $main = d.querySelector("main");
+const $links = d.querySelector(".links"); */
 const cards = d.querySelector(".cards");
 const btn = d.getElementById("btnpaginacion");
 const btnOcultar = d.getElementById("btnOcultar");
@@ -36,15 +36,14 @@ const getData_forImg = async (dataDeData) => {
       }</p>
         <div class="card">
         <figure >
-        <img src="${imgPokemonFront}" alt=""> 
+        <img src="${imgPokemonFront}" alt="">
         </figure>
         <figure><img src="${imgPokemonBack}" alt=""></figure>
         <figure> <img src="${imgPokemonShiny}" alt=""></figure>
             </div>
         </div>
       `;
-      cards.innerHTML += contenido;
-     
+      cards.innerHTML += contenido; // añadir contenido
     }
     d.addEventListener("click", (e) => {
       if (e.target === btnOcultar) {
