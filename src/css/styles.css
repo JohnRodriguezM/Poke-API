@@ -6,7 +6,7 @@
 
 html{
     width: 100%;
-    max-width: 900px;
+    max-width: 600px;
     margin: 0 auto;
     scroll-behavior: smooth;
 }
@@ -53,32 +53,38 @@ header,main{
 }
 
 
-
+.active{
+    display:block;
+}
 
 
 
 .card{
     margin: 10px auto;
+    max-width: 400px;
     display: grid;
     grid-template-columns: auto auto auto;
     justify-items: center;
 }
 
-figure{
+/* figure{
     transform: translateX(-0.4rem);
-    transition : transform 400ms
+    transition : transform 1s;
+    padding: 7px;
+    border-radius: 10px;
+    } */
+    /* figure:hover{
+        transform: scale(1.2)
+    } */
+
+/* img:hover{
+    transform: scale(1.1);
+    transition: transform 1s;
+} */
+
+img:hover{
+    transform: scale(1.2);
+    transition: transform 1s;
 }
 
-figure::before{
-    content: "✌";
-    opacity: 0;
-}
-figure:hover{
-    transform:none;
-}
 
-
-figure:hover::before{
-    text-align: center;
-    opacity: 1;
-}
