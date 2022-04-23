@@ -1,90 +1,72 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-html{
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    scroll-behavior: smooth;
+html {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  scroll-behavior: smooth;
 }
 
 /*cambios generales*/
-button,img{
-    cursor: pointer;
+button,
+img {
+  cursor: pointer;
 }
-li{
-    list-style: none;
+li {
+  list-style: none;
 }
-h1{
-    margin: 15px auto;
+h1 {
+  margin: 15px auto;
 }
-.none{
-    display: none;
-}
-
-button{
-    background: #f2f2f2;
-    border: none;
-    border-radius: 5px;
-    padding: 12px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #333;
-    margin: 10px auto;
+.none {
+  display: none;
 }
 
-header,main{
-    text-align: center;
+button {
+  background: #f2f2f2;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px auto;
 }
 
-.names{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    margin-top:10px;
+header,
+main {
+  text-align: center;
 }
 
-.links{
-    display: flex;
-    justify-content: space-around;
-    margin: 20px auto;
+.names {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 10px;
 }
 
-
-.active{
-    display:block;
+.links {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
 }
 
-
-
-.card{
-    margin: 10px auto;
-    max-width: 400px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-items: center;
+.active {
+  display: block;
 }
 
-/* figure{
-    transform: translateX(-0.4rem);
-    transition : transform 1s;
-    padding: 7px;
-    border-radius: 10px;
-    } */
-    /* figure:hover{
-        transform: scale(1.2)
-    } */
-
-/* img:hover{
-    transform: scale(1.1);
-    transition: transform 1s;
-} */
-
-img:hover{
-    transform: scale(1.2);
-    transition: transform 1s;
+.card {
+  margin: 10px auto;
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-items: center;
 }
 
-
+img:hover {
+  transform: scale(1.2);
+  transition: all 0.8s ease;
+}
